@@ -1,0 +1,71 @@
+version: '3'
+services:
+    maildev:
+        image: djfarrelly/maildev
+        ports:
+            - "1080:80"
+            - "1025:25"
+        networks:
+            static-network:
+
+    mysql:
+        image: mysql:5.7
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_USER=symfony
+            - MYSQL_PASSWORD=symfony
+        volumes:
+            - mysql-data:/var/lib/mysql:rw
+        networks:
+            static-network:
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        ports:
+            - "8888:80"
+        links:
+            - mysql
+        environment:
+            - PMA_HOST=mysql
+        networks:
+            static-network:
+
+    nginx:
+        image: nginx:1.13
+        volumes:
+            - ./app:/usr/share/nginx/html
+            - ./sites:/etc/nginx/conf.d/
+        ports:
+            - "80:80"
+        links:
+            - php
+        depends_on:
+            - php
+        networks:
+            static-network:
+                ipv4_address: 172.45.0.10
+
+    php:
+        build:
+            context: ./docker/dockerfiles/php/71
+            args:
+                - user=${USER}
+        volumes:
+            - ./app:/usr/share/nginx/html:rw
+        links:
+            - mysql
+            - maildev
+        depends_on:
+            - mysql
+            - maildev
+        networks:
+            static-network:
+
+networks:
+  static-network:
+      ipam:
+          config:
+              - subnet: 172.45.0.0/24
+
+volumes:
+    mysql-data:
