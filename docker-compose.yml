@@ -43,7 +43,7 @@ services:
             - php
         networks:
             static-network:
-                ipv4_address: 172.45.0.10
+                ipv4_address: 172.46.0.10
 
     php:
         build:
@@ -65,7 +65,7 @@ networks:
   static-network:
       ipam:
           config:
-              - subnet: 172.45.0.0/24
+              - subnet: 172.46.0.0/24
 
 volumes:
     mysql-data:

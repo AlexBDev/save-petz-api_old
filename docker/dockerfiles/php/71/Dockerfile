@@ -1,4 +1,4 @@
-FROM php:7.2.0RC2-fpm
+FROM php:7.2.0RC3-fpm
 
 ARG USER=symfony
 ARG UID=1000
@@ -18,6 +18,7 @@ RUN apt-get install -y \
         libxrender1 \
         sudo \
         curl \
+        zip \
         git
 
 RUN docker-php-ext-install -j$(nproc) \
@@ -36,7 +37,8 @@ RUN docker-php-ext-install -j$(nproc) \
         pdo \
         pdo_mysql \
         phar \
-        simplexml
+        simplexml \
+        zip
 
 RUN apt-get clean
 
