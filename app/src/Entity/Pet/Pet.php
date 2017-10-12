@@ -53,7 +53,7 @@ class Pet
 
     /**
      * @var Location
-     * @ORM\OneToOne(targetEntity="App\Entity\Location")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Location")
      * @ORM\JoinColumn(name="location", referencedColumnName="id")
      */
     private $location;
@@ -151,13 +151,25 @@ class Pet
         return $this->characteristics;
     }
 
+    public function addCharacteristic(PetCharacteristicValue $characteristic)
+    {
+        if (!$this->characteristics->contains($characteristic)) {
+            $this->characteristics[] = $characteristic;
+        }
+
+        return $this;
+    }
+
     /**
      * @param PetCharacteristicValue[] $characteristics
      * @return Pet
      */
     public function setCharacteristics(array $characteristics): Pet
     {
-        $this->characteristics = $characteristics;
+        foreach ($characteristics as $characteristic) {
+            $this->addCharacteristic($characteristic);
+        }
+
         return $this;
     }
 

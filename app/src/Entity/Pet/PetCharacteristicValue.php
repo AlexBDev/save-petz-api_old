@@ -28,6 +28,13 @@ class PetCharacteristicValue
     private $value;
 
     /**
+     * @var PetCharacteristic
+     * @ORM\ManyToOne(targetEntity="PetCharacteristic")
+     * @ORM\JoinColumn(name="pet_characteristic_id", referencedColumnName="id")
+     */
+    private $characteristic;
+
+    /**
      * @return int
      */
     public function getId(): int
@@ -50,6 +57,24 @@ class PetCharacteristicValue
     public function setValue(string $value): PetCharacteristicValue
     {
         $this->value = $value;
+        return $this;
+    }
+
+    /**
+     * @return PetCharacteristic
+     */
+    public function getCharacteristic(): PetCharacteristic
+    {
+        return $this->characteristic;
+    }
+
+    /**
+     * @param PetCharacteristic $characteristic
+     * @return PetCharacteristicValue
+     */
+    public function setCharacteristic(PetCharacteristic $characteristic): PetCharacteristicValue
+    {
+        $this->characteristic = $characteristic;
         return $this;
     }
 }

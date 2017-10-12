@@ -24,7 +24,7 @@ class PetType
 
     /**
      * @var string
-     * @ORM\Column(type="string", length=40)
+     * @ORM\Column(type="string", length=40, unique=true)
      */
     private $name;
 
@@ -39,7 +39,7 @@ class PetType
     /**
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->name;
     }
@@ -48,7 +48,7 @@ class PetType
      * @param string $name
      * @return PetType
      */
-    public function setName(string $name): PetType
+    public function setName($name)
     {
         $this->name = $name;
 
