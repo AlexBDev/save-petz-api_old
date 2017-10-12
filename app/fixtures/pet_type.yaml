@@ -1,0 +1,3 @@
+App\Entity\Pet\PetType:
+    pet_type:
+        name: "toto"
