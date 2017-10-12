@@ -3,10 +3,8 @@
 namespace App\Entity\Pet;
 
 use Doctrine\ORM\Mapping as ORM;
-use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
- * @ApiResource
  * @ORM\Entity
  * @ORM\Table(name="pet_type_characteristic_value")
  */

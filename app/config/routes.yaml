@@ -1,8 +1,13 @@
-#index:
-#    path: /
-#    defaults: { _controller: 'App\Controller\DefaultController::index' }
+api_pet_type:
+    type:     rest
+    resource: App\Controller\API\PetTypeController
+    prefix: /{version}
+    requirements:
+        version: v\d+
 
-# first, run composer req annotations
-#controllers:
-#    resource: ../src/Controller/
-#    type: annotation
+api_contact:
+    type:     rest
+    resource: App\Controller\API\ContactController
+    prefix: /{version}
+    requirements:
+        version: v\d+

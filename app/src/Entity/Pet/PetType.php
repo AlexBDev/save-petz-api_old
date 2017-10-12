@@ -3,11 +3,9 @@
 namespace App\Entity\Pet;
 
 use Doctrine\ORM\Mapping as ORM;
-use ApiPlatform\Core\Annotation\ApiResource;
-
+use JMS\Serializer\Annotation as Serializer;
 
 /**
- * @ApiResource
  * @ORM\Entity
  * @ORM\Table(name="pet_type")
  */

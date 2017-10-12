@@ -5,10 +5,8 @@ namespace App\Entity\Pet;
 use App\Entity\Contact;
 use App\Entity\Location;
 use Doctrine\ORM\Mapping as ORM;
-use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
- * @ApiResource
  * @ORM\Entity
  * @ORM\Table(name="pet")
  */

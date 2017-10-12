@@ -2,8 +2,10 @@
     "type": "project",
     "license": "proprietary",
     "require": {
-        "php": "^7.0.8",
-        "api-platform/api-pack": "^1.0",
+        "php": "^7.1.0",
+        "friendsofsymfony/rest-bundle": "^2.2",
+        "sensio/framework-extra-bundle": "^5.0",
+        "symfony/expression-language": "^3.3",
         "symfony/framework-bundle": "^3.3",
         "symfony/monolog-bundle": "^3.1",
         "symfony/yaml": "^3.3"
