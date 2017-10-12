@@ -5,15 +5,18 @@
         "php": "^7.0.8",
         "api-platform/api-pack": "^1.0",
         "symfony/framework-bundle": "^3.3",
+        "symfony/monolog-bundle": "^3.1",
         "symfony/yaml": "^3.3"
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^2.4",
+        "hautelook/alice-bundle": "^2.0@beta",
         "nelmio/alice": "^3.0@RC",
         "symfony/debug-bundle": "^3.3",
         "symfony/dotenv": "^3.3",
         "symfony/flex": "^1.0",
-        "symfony/profiler-pack": "^1.0"
+        "symfony/profiler-pack": "^1.0",
+        "theofidry/alice-data-fixtures": "^1.0@beta"
     },
     "config": {
         "preferred-install": {
