@@ -31,5 +31,28 @@ App\Entity\Pet\PetCharacteristic:
         name: "Collier"
 
 App\Entity\Pet\PetCharacteristicValue:
-    pet_characteristic_value{1..5}:
+    pet_characteristic_value_size{1..5}:
+        characteristic: "@pet_characteristic0"
+        value: <randomElement(["Grand", "Petit", "Moyen"])>
+    pet_characteristic_value_color{1..5}:
+        characteristic: "@pet_characteristic1"
+        value: <randomElement(["Noir", "Rouge", "Marron", "Blanc"])>
+    pet_characteristic_value_chip{1..5}:
+        characteristic: "@pet_characteristic2"
+        value: <randomElement(["Oui", "Non"])>
+    pet_characteristic_value_tatoo{1..5}:
+        characteristic: "@pet_characteristic3"
+        value: <ean13()>
+    pet_characteristic_value_necklace{1..5}:
+        characteristic: "@pet_characteristic4"
+        value: <randomElement(["Noir", "Rouge", "Marron", "Blanc"])>
 
+App\Entity\Pet\Pet:
+    pet{1..30}:
+        type: "@pet_type*"
+        name: <userName()>
+        description: <realText()>
+        characteristics: ["@pet_characteristic_value_size*", "@pet_characteristic_value_size*"]
+        location: "@location*"
+        contact: "@contact*"
+        status: <randomElement([0,1])>
