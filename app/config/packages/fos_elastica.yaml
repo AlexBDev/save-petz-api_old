@@ -1,0 +1,13 @@
+fos_elastica:
+    clients:
+        default: { host: %env(ELASTICSEARCH_HOST)%, port: %env(ELASTICSEARCH_PORT)% }
+    serializer:
+        serializer: jms_serializer
+    indexes:
+        app_v1:
+            types:
+                contact:
+                    persistence:
+                        driver: orm #the driver can be orm, mongodb, phpcr or propel
+                        model: App\Entity\Contact
+                        listener: ~ # by default, listens to "insert", "update" and "delete"
