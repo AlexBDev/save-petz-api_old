@@ -6,8 +6,54 @@ fos_elastica:
     indexes:
         app_v1:
             types:
+
                 contact:
                     persistence:
-                        driver: orm #the driver can be orm, mongodb, phpcr or propel
+                        driver: orm
                         model: App\Entity\Contact
-                        listener: ~ # by default, listens to "insert", "update" and "delete"
+                        listener: ~
+
+                location:
+                    persistence:
+                        driver: orm
+                        model: App\Entity\Location
+                        listener: ~
+
+                pet_type:
+                    persistence:
+                        driver: orm
+                        model: App\Entity\Pet\PetType
+                        listener: ~
+
+                pet_characteristic:
+                    persistence:
+                        driver: orm
+                        model: App\Entity\Pet\PetCharacteristic
+                        listener: ~
+
+                pet_characteristic_value:
+                    persistence:
+                        driver: orm
+                        model: App\Entity\Pet\PetCharacteristicValue
+                        listener: ~
+
+                pet:
+                    properties:
+                        id: ~
+                        name: ~
+                        description: ~
+                        status: ~
+                        characteristics:
+                            type: "nested"
+                            properties:
+                                id: ~
+                                value: ~
+                                characteristic:
+                                    type: "nested"
+                                    properties:
+                                        id: ~
+                                        name: ~
+                    persistence:
+                        driver: orm
+                        model: App\Entity\Pet\Pet
+                        listener: ~
