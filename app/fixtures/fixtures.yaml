@@ -56,3 +56,5 @@ App\Entity\Pet\Pet:
         location: "@location*"
         contact: "@contact*"
         status: <randomElement([0,1])>
+        created_at: <dateTimeBetween('-6 month', 'now')>
+        updated_at: <dateTime()>

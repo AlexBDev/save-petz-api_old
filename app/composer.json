@@ -5,6 +5,7 @@
         "php": "^7.1.0",
         "friendsofsymfony/elastica-bundle": "^4.0",
         "friendsofsymfony/rest-bundle": "^2.2",
+        "gedmo/doctrine-extensions": "^2.4",
         "nelmio/cors-bundle": "^1.5",
         "sensio/framework-extra-bundle": "^5.0",
         "symfony/expression-language": "^3.3",

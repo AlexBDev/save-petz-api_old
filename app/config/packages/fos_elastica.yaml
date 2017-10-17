@@ -43,6 +43,9 @@ fos_elastica:
                         name: ~
                         description: ~
                         status: ~
+                        created_at:
+                            type: ~
+                            fielddata: true
                         characteristics:
                             type: "nested"
                             properties:
@@ -57,3 +60,4 @@ fos_elastica:
                         driver: orm
                         model: App\Entity\Pet\Pet
                         listener: ~
+                        repository: App\Repository\Elastica\PetRepository

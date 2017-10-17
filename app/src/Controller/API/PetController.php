@@ -5,13 +5,16 @@ namespace App\Controller\API;
 
 use App\Entity\Pet\Pet;
 use FOS\RestBundle\Routing\ClassResourceInterface;
+use Symfony\Component\HttpFoundation\Request;
 
 class PetController extends ApiController implements ClassResourceInterface
 {
-    public function cgetAction()
+    public function cgetAction(Request $request)
     {
-        $data = $this->getDoctrine()->getManager()->getRepository(Pet::class)->findAll();
+        $request->query->add(['status' => Pet::IS_LOST]);
 
-        return $this->handleData(array_slice($data, 0, 10));
+        $data = $this->getElasticaRepository(Pet::class)->search($request);
+
+        return $this->handleData($data);
     }
 }

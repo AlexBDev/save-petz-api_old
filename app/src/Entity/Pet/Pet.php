@@ -5,6 +5,7 @@ namespace App\Entity\Pet;
 use App\Entity\Contact;
 use App\Entity\Location;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 /**
  * @ORM\Entity
@@ -12,6 +13,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Pet
 {
+    use TimestampableEntity;
+
+    const IS_LOST = 0;
+    const IS_FOUND = 1;
+
     /**
      * @var int The id of this book.
      *
