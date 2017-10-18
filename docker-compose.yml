@@ -12,8 +12,6 @@ services:
         image: mysql:5.7
         environment:
             - MYSQL_ROOT_PASSWORD=root
-            - MYSQL_USER=symfony
-            - MYSQL_PASSWORD=symfony
         volumes:
             - mysql-data:/var/lib/mysql:rw
         networks:

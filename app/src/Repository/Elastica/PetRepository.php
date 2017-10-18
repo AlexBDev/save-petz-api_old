@@ -24,6 +24,6 @@ class PetRepository extends Repository
             ]
         ]);
 
-        return $this->find($query, $request->query->getInt('limit', 5));
+        return $this->find($query, $request->query->getInt('limit', $request->query->getInt('limit', 20)));
     }
 }
