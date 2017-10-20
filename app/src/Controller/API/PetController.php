@@ -4,14 +4,18 @@ namespace App\Controller\API;
 
 
 use App\Entity\Pet\Pet;
+use App\Model\ApiQuery;
 use FOS\RestBundle\Routing\ClassResourceInterface;
-use Symfony\Component\HttpFoundation\Request;
+use FOS\RestBundle\Controller\Annotations\Get;
 
 class PetController extends ApiController implements ClassResourceInterface
 {
-    public function cgetAction(Request $request)
+    /**
+     * @Get("/pets")
+     */
+    public function cgetAction(ApiQuery $apiQuery)
     {
-        $data = $this->getElasticaRepository(Pet::class)->search($request);
+        $data = $this->getElasticaRepository(Pet::class)->search($apiQuery);
 
         return $this->handleData($data);
     }

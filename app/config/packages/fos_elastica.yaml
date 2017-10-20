@@ -44,8 +44,7 @@ fos_elastica:
                         description: ~
                         status: ~
                         created_at:
-                            type: ~
-                            fielddata: true
+                            type: date
                         characteristics:
                             type: "nested"
                             properties:
