@@ -19,6 +19,18 @@ class ApiQueryResolver
     {
         $apiQuery = new ApiQuery();
 
+        if (null !== $id  = $request->query->get('id')) {
+            $apiQuery->setId($id);
+        }
+
+        if (null !== $limit = $request->query->getInt('limit', 10)) {
+            $apiQuery->setLimit($limit);
+        }
+
+        if (null !== $offset = $request->query->getInt('offset', 0)) {
+            $apiQuery->setOffset($offset);
+        }
+
         foreach (explode(',', $request->get('sort')) as $field) {
             $apiQuery->addSort($field, 'asc');
         }
