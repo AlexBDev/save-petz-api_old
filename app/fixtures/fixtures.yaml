@@ -20,15 +20,21 @@ App\Entity\Pet\PetType:
 
 App\Entity\Pet\PetCharacteristic:
     pet_characteristic0:
-        name: "Taille"
+        name: "size"
     pet_characteristic1:
-        name: "Couleur"
+        name: "color"
     pet_characteristic2:
-        name: "Puce"
+        name: "chip"
     pet_characteristic3:
-        name: "Tatouage"
+        name: "tatoo"
     pet_characteristic4:
-        name: "Collier"
+        name: "necklace"
+    pet_characteristic5:
+        name: "fur"
+    pet_characteristic6:
+        name: "eye"
+    pet_characteristic7:
+        name: "race"
 
 App\Entity\Pet\PetCharacteristicValue:
     pet_characteristic_value_size{1..5}:
@@ -45,14 +51,31 @@ App\Entity\Pet\PetCharacteristicValue:
         value: <ean13()>
     pet_characteristic_value_necklace{1..5}:
         characteristic: "@pet_characteristic4"
-        value: <randomElement(["Noir", "Rouge", "Marron", "Blanc"])>
+        value: <randomElement(["Toto", "Titus", "Max", "Charmant Lebel 06 05 07"])>
+    pet_characteristic_value_fur{1..5}:
+        characteristic: "@pet_characteristic5"
+        value: <randomElement(["Grand", "Petit", "Moyen"])>
+    pet_characteristic_value_eye{1..5}:
+        characteristic: "@pet_characteristic6"
+        value: <randomElement(["Noir", "Vert", "Marron", "Bleu"])>
+    pet_characteristic_value_race{1..5}:
+        characteristic: "@pet_characteristic7"
+        value: <randomElement(["Labrador", "Teckel", "Persan", "Tanzanie"])>
 
 App\Entity\Pet\Pet:
     pet{1..30}:
         type: "@pet_type*"
         name: <userName()>
         description: <realText()>
-        characteristics: ["@pet_characteristic_value_size*", "@pet_characteristic_value_size*"]
+        characteristics :
+            - "@pet_characteristic_value_size*"
+            - "@pet_characteristic_value_color*"
+            - "@pet_characteristic_value_chip*"
+            - "@pet_characteristic_value_tatoo*"
+            - "@pet_characteristic_value_necklace*"
+            - "@pet_characteristic_value_fur*"
+            - "@pet_characteristic_value_eye*"
+            - "@pet_characteristic_value_race*"
         location: "@location*"
         contact: "@contact*"
         status: <randomElement([0,1])>
