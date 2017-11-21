@@ -19,6 +19,8 @@ class PetRepository extends Repository
     {
         $query = ElasticaApiQueryBuilder::build($api);
 
-        return $this->find($query, 20);
+        return $this->find($query, $api->getLimit(), [
+            'from' => $api->getOffset(),
+        ]);
     }
 }

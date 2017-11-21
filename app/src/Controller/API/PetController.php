@@ -19,4 +19,12 @@ class PetController extends ApiController implements ClassResourceInterface
 
         return $this->handleData($data);
     }
+
+    /**
+     * @Get("/pets/{id}")
+     */
+    public function showAction(Pet $pet)
+    {
+        return $this->handleData($pet);
+    }
 }
