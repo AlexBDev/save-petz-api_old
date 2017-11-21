@@ -4,6 +4,7 @@ namespace App\Entity\Pet;
 
 use App\Entity\Contact;
 use App\Entity\Location;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 
@@ -150,7 +151,7 @@ class Pet
     /**
      * @return PetCharacteristicValue[]
      */
-    public function getCharacteristics(): array
+    public function getCharacteristics(): Collection
     {
         return $this->characteristics;
     }
