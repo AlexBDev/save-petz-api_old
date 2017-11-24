@@ -58,7 +58,7 @@ class Pet
 
     /**
      * @var Location
-     * @ORM\ManyToOne(targetEntity="App\Entity\Location")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Location", cascade={"persist"})
      * @ORM\JoinColumn(name="location", referencedColumnName="id")
      */
     private $location;
@@ -73,7 +73,7 @@ class Pet
 
     /**
      * @var Contact
-     * @ORM\ManyToOne(targetEntity="App\Entity\Contact")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Contact", cascade={"persist"})
      * @ORM\JoinColumn(name="contact_id", referencedColumnName="id")
      */
     private $contact;
@@ -89,7 +89,7 @@ class Pet
     /**
      * @return int
      */
-    public function getId(): int
+    public function getId(): ?  int
     {
         return $this->id;
     }
@@ -97,7 +97,7 @@ class Pet
     /**
      * @return string
      */
-    public function getName(): string
+    public function getName(): ?    string
     {
         return $this->name;
     }
@@ -115,7 +115,7 @@ class Pet
     /**
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription(): ? string
     {
         return $this->description;
     }
@@ -133,7 +133,7 @@ class Pet
     /**
      * @return int
      */
-    public function getStatus(): int
+    public function getStatus(): ?  int
     {
         return $this->status;
     }
@@ -151,7 +151,7 @@ class Pet
     /**
      * @return PetCharacteristicValue[]
      */
-    public function getCharacteristics(): Collection
+    public function getCharacteristics(): ? Collection
     {
         return $this->characteristics;
     }
@@ -181,7 +181,7 @@ class Pet
     /**
      * @return Location
      */
-    public function getLocation(): Location
+    public function getLocation(): ?    Location
     {
         return $this->location;
     }
@@ -199,7 +199,7 @@ class Pet
     /**
      * @return PetType
      */
-    public function getType(): PetType
+    public function getType(): ?    PetType
     {
         return $this->type;
     }
@@ -217,7 +217,7 @@ class Pet
     /**
      * @return Contact
      */
-    public function getContact(): Contact
+    public function getContact(): ? Contact
     {
         return $this->contact;
     }

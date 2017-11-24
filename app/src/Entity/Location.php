@@ -28,27 +28,27 @@ class Location
 
     /**
      * @var string
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $address;
 
     /**
      * @var string
-     * @ORM\Column(type="decimal", precision=8, scale=6)
+     * @ORM\Column(type="decimal", precision=8, scale=6, nullable=true)
      */
     private $latitude;
 
 
     /**
      * @var string
-     * @ORM\Column(type="decimal", precision=9, scale=6)
+     * @ORM\Column(type="decimal", precision=9, scale=6, nullable=true)
      */
     private $longitude;
 
     /**
      * @return int
      */
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -56,7 +56,7 @@ class Location
     /**
      * @return string
      */
-    public function getCity(): string
+    public function getCity(): ?string
     {
         return $this->city;
     }
@@ -74,7 +74,7 @@ class Location
     /**
      * @return string
      */
-    public function getAddress(): string
+    public function getAddress(): ?string
     {
         return $this->address;
     }
@@ -92,7 +92,7 @@ class Location
     /**
      * @return string
      */
-    public function getLatitude(): string
+    public function getLatitude(): ?string
     {
         return $this->latitude;
     }
@@ -110,7 +110,7 @@ class Location
     /**
      * @return string
      */
-    public function getLongitude(): string
+    public function getLongitude(): ?string
     {
         return $this->longitude;
     }

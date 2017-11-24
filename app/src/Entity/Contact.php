@@ -48,7 +48,7 @@ class Contact
     /**
      * @return int
      */
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -56,7 +56,7 @@ class Contact
     /**
      * @return string
      */
-    public function getFirstname(): string
+    public function getFirstname(): ?string
     {
         return $this->firstname;
     }
@@ -74,7 +74,7 @@ class Contact
     /**
      * @return string
      */
-    public function getLastname(): string
+    public function getLastname(): ?string
     {
         return $this->lastname;
     }
@@ -92,7 +92,7 @@ class Contact
     /**
      * @return string
      */
-    public function getPhone(): string
+    public function getPhone(): ?string
     {
         return $this->phone;
     }
@@ -110,7 +110,7 @@ class Contact
     /**
      * @return Location
      */
-    public function getLocation(): Location
+    public function getLocation(): ?Location
     {
         return $this->location;
     }
