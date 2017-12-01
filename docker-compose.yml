@@ -45,9 +45,11 @@ services:
 
     php:
         build:
-            context: ./docker/dockerfiles/php/71
+            context: ./dockerfiles/php/71
             args:
-                - user=${USER}
+                - DSP_USER_USERNAME
+                - DSP_USER_UID
+                - DSP_USER_GID
         volumes:
             - ./app:/usr/share/nginx/html:rw
         links:
