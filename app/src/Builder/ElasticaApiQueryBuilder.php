@@ -20,10 +20,15 @@ class ElasticaApiQueryBuilder
 
         $query = new Query($bool);
 
+
         foreach ($api->getSorts() as $field => $order) {
-            if (!empty($field) && !in_array($field, ['created_at', 'updated_at'])) {
+            if (!empty($field)) {
+                if (!in_array($field, ['created_at', 'updated_at'])) {
+                    $field .= '.keyword'; // Due to recent changes from Elasticsearch we need to suffix for string field
+                }
+
                 $query->addSort([
-                    $field.'.keyword' => [
+                    $field => [
                         'order' => $order
                     ]
                 ]);
