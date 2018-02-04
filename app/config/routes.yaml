@@ -37,3 +37,17 @@ api_contact:
     prefix: /{version}
     requirements:
         version: v\d+
+
+api_characteristic:
+    type:     rest
+    resource: App\Controller\API\CharacteristicController
+    prefix: /{version}
+    requirements:
+        version: v\d+
+
+api_form:
+    type:     rest
+    resource: App\Controller\API\FormController
+    prefix: /{version}
+    requirements:
+        version: v\d+

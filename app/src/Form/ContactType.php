@@ -21,7 +21,7 @@ class ContactType extends AbstractType
             ->add('firstname')
             ->add('lastname')
             ->add('phone')
-            ->add('location')
+            ->add('location', LocationType::class)
         ;
     }
 

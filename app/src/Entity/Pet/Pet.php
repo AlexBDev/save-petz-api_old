@@ -79,6 +79,14 @@ class Pet
     private $contact;
 
     /**
+     * @var string
+     * @ORM\Column(type="string", length=15, nullable=true)
+     */
+    private $tatoo;
+
+
+
+    /**
      * Pet constructor.
      */
     public function __construct()

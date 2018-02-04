@@ -45,6 +45,11 @@ class Location
      */
     private $longitude;
 
+    public function __toString()
+    {
+        return (string) $this->city.' - '.$this->address;
+    }
+
     /**
      * @return int
      */

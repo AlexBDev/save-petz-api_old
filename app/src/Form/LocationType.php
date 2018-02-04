@@ -21,8 +21,6 @@ class LocationType extends AbstractType
         $builder
             ->add('city')
             ->add('address')
-            ->add('latitude')
-            ->add('longitude')
         ;
     }
 

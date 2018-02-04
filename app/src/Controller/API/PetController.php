@@ -9,8 +9,8 @@ use App\Model\ApiQuery;
 use FOS\RestBundle\Routing\ClassResourceInterface;
 use FOS\RestBundle\Controller\Annotations\Get;
 use FOS\RestBundle\Controller\Annotations\Post;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 class PetController extends ApiController implements ClassResourceInterface
 {
@@ -25,6 +25,16 @@ class PetController extends ApiController implements ClassResourceInterface
     }
 
     /**
+     * @Get("/pets/form")
+     */
+    public function getAction()
+    {
+        return $this->render('@front/form/pets.html.twig', [
+            'form' => $this->createForm(FormPetType::class)->createView(),
+        ]);
+    }
+
+    /**
      * @Get("/pets/{id}")
      */
     public function showAction(Pet $pet)
@@ -33,12 +43,14 @@ class PetController extends ApiController implements ClassResourceInterface
     }
 
     /**
+     * @Security("is_fully_authenticated()")
      * @Post("/pets")
      */
     public function postAction(Request $request)
     {
         $pet = new Pet();
         $form = $this->createForm(FormPetType::class, $pet);
+
         $form->submit($request->request->all());
 
         if (!$form->isValid()) {
@@ -46,9 +58,15 @@ class PetController extends ApiController implements ClassResourceInterface
         }
 
         $em = $this->getDoctrine()->getManager();
+
+        return $this->handleData($request->request->all());
+        die;
+
         $em->persist($pet);
         $em->flush();
 
         return $this->handleData($pet);
     }
+
+
 }

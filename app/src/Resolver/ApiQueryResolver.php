@@ -31,12 +31,16 @@ class ApiQueryResolver
             $apiQuery->setOffset($offset);
         }
 
-        foreach (explode(',', $request->get('sort')) as $field) {
-            $apiQuery->addSort($field, 'asc');
+        if ($request->query->has('sort')) {
+            foreach (explode(',', $request->query->get('sort')) as $field) {
+                $apiQuery->addSort($field, 'asc');
+            }
         }
 
-        foreach (explode(',', $request->get('desc')) as $field) {
-            $apiQuery->addSort($field, 'desc');
+        if ($request->query->has('desc')) {
+            foreach (explode(',', $request->query->get('desc')) as $field) {
+                $apiQuery->addSort($field, 'desc');
+            }
         }
 
         return $apiQuery;
