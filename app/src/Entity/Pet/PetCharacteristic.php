@@ -26,6 +26,12 @@ class PetCharacteristic
     private $name;
 
     /**
+     * @var string
+     * @ORM\Column(type="string", length=40)
+     */
+    private $label;
+
+    /**
      * @return int
      */
     public function getId(): int
@@ -48,6 +54,24 @@ class PetCharacteristic
     public function setName(string $name): PetCharacteristic
     {
         $this->name = $name;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLabel(): ?string
+    {
+        return $this->label;
+    }
+
+    /**
+     * @param string $label
+     * @return PetCharacteristic
+     */
+    public function setLabel(string $label): PetCharacteristic
+    {
+        $this->label = $label;
         return $this;
     }
 }

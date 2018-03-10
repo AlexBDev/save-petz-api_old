@@ -26,10 +26,6 @@ class FormController extends ApiController
         foreach ($characteristics as $ch) {
             $type = strtolower($ch->getCharacteristic()->getName());
 
-//            [
-//                [type => 'ets' [data => []]]
-//            ]
-
             $data[$type][] = [
                 'name' => $ch->getValue(),
                 'value' => $ch->getId(),
@@ -44,9 +40,6 @@ class FormController extends ApiController
             ];
         }
 
-        dump($values);
-        die;
-
-        return $this->handleData($pet);
+        return $this->handleData($data);
     }
 }

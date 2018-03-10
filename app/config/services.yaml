@@ -46,3 +46,7 @@ services:
     App\EventListener\RegistrationListener:
         tags:
             - { name: kernel.event_subscriber }
+
+    App\Faker\Provider\PetCharacteristicValueProvider:
+        tags:
+            - { name: nelmio_alice.faker.provider }
